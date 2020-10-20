@@ -1,4 +1,10 @@
-.App {
+body, .container, html{
+  min-width: 100%;
+  margin: 0 auto;
+}
+
+
+body {
   text-align: center;
 }
 
@@ -35,4 +41,74 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.title{
+  font-family: 'Permanent Marker', cursive;
+}
+
+.enemyStats{
+  min-width: 350px;
+  border: 2px solid black;
+  padding: 1em;
+  background: rgb(201, 201, 201, 0.2);
+}
+
+.enemyStatsBody {
+  display: grid;
+  grid-template-columns: 100px 50px 50px 50px;
+  grid-template-rows: 30px 30px;
+  min-width: 250px;
+  padding: 0;
+}
+
+.enemyLife{
+  grid-column: 2 / end;
+  grid-row: 2;
+  background: rgba(160, 139, 139, 0.8); 
+  border: 2px solid black;
+}
+
+.enemyHealthBar{
+  content: " ";
+  background: olivedrab;
+  min-width: 80%;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+.monsterName {
+  grid-row: 1;
+  grid-column: 1;
+  text-transform: capitalize;
+}
+
+.monsterLevel {
+  grid-row: 1;
+  grid-column: 5;
+  text-align: right;
+
+}
+
+
+.enemyGround {
+  content: " ";
+  background: rgba(131, 29, 29, 0.659);
+  width: 150px;
+  height: 150px;
+  -moz-border-radius: 75px;
+  -webkit-border-radius: 75px;
+  border-radius: 75px;
+  transform: rotate3d(65, 0, 0, 65deg);
+  margin: 0 auto;
+}
+
+.enemyMonster{
+  content: " ";
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 1;
+  background-repeat: no-repeat!important;
+  left: 42%;
 }

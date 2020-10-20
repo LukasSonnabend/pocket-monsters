@@ -1,0 +1,42 @@
+[
+    {
+        "name": "mankey",
+        "url": "https://pokeapi.co/api/v2/pokemon/56/"
+    },
+    {
+        "name": "primeape",
+        "url": "https://pokeapi.co/api/v2/pokemon/57/"
+    },
+    {
+        "name": "growlithe",
+        "url": "https://pokeapi.co/api/v2/pokemon/58/"
+    },
+    {
+        "name": "arcanine",
+        "url": "https://pokeapi.co/api/v2/pokemon/59/"
+    },
+    {
+        "name": "poliwag",
+        "url": "https://pokeapi.co/api/v2/pokemon/60/"
+    },
+    {
+        "name": "poliwhirl",
+        "url": "https://pokeapi.co/api/v2/pokemon/61/"
+    },
+    {
+        "name": "poliwrath",
+        "url": "https://pokeapi.co/api/v2/pokemon/62/"
+    },
+    {
+        "name": "abra",
+        "url": "https://pokeapi.co/api/v2/pokemon/63/"
+    },
+    {
+        "name": "kadabra",
+        "url": "https://pokeapi.co/api/v2/pokemon/64/"
+    },
+    {
+        "name": "alakazam",
+        "url": "https://pokeapi.co/api/v2/pokemon/65/"
+    }
+]
