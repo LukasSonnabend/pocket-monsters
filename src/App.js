@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Enemy from './components/enemy';
+import { UserProvider } from './context/battleContext';
 import Home from './pages/home';
 import './App.css';
 import Button from 'react-bootstrap/Button';
@@ -16,6 +17,7 @@ import Battle from './pages/battle';
 export default function App() {
   return (
     <Router>
+      <UserProvider>
       <div>
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
@@ -30,6 +32,7 @@ export default function App() {
           </Route>
         </Switch>
       </div>
+      </UserProvider>
     </Router>
   );
 }
