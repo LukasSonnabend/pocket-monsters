@@ -7,12 +7,11 @@ import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import PromptBox from '../components/promptbox';
 import stCall from '../mockStatsPlayer.json'
-import UserContext from '../context/battleContext';
+
 
 
 function Player(props) {
 
-  const user = useContext(UserContext)
 
 
   const [activeMonster, setActiveMonster] = useState( props.monsters[0] );
@@ -25,6 +24,9 @@ function Player(props) {
     setPlayerAttackInfo(childData)
   },[])
 
+  useEffect(() => {
+
+  },[playerAttackInfo])
 
   // useEffect(async () => {
   //   const result = await axios.get(activeMonster.url)

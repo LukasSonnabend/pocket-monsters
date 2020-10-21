@@ -1,45 +1,42 @@
-import React, { Component }  from 'react'
+import React, { useContext, useState } from 'react'
 
-const UserContext = React.createContext({
-    playerMonster: "",
-    enemyMonster: "",
-})
+const BattleContext = React.createContext();
+const UpdateMonstersContext = React.createContext();
 
-class UserProvider extends Component {
-    // Context state
-    state = {
-        playerMonster: "",
-        enemyMonster: "",
-    }
-    
-  
-    // Method to update state
-    setOwnMonster = (user) => {
-      this.setState((prevState) => ({ user }))
+//create custom hook
+export function useMonsters(){
+  return useContext(BattleContext)
+}
+
+export function MonstersUpdate(){
+  return useContext(UpdateMonstersContext)
+}
+
+
+export function BattleProvider({ children }) {
+  const [monsters, setMonsters] = useState({own: undefined, enemy: undefined});
+  //const [monsters, setMonsters] = useState(true);
+
+  function UpdateMonsters(obj) {
+    if (obj.origin == "player"){
+      setMonsters(monsters.own = obj.monsInfo)
+    } else {
+      setMonsters(monsters.enemy = obj.monsInfo)
     }
 
-    setEnemyMonster = (user) => {
-        this.setState((prevState) => ({ user }))
-      }
-  
-    render() {
-      const { children } = this.props
-      const { playerMonster } = this.state
-      const { enemyMonster } = this
-  
-      return (
-        <UserContext.Provider
-          value={{
-            playerMonster,
-            enemyMonster,
-          }}
-        >
-          {children}
-        </UserContext.Provider>
-      )
-    }
   }
-  
-  export default UserContext
-  
-  export { UserProvider }
+
+  // function EnemyMonsters(monsterObj){
+  //   setEnemyMonsters(monsterObj)
+  // }
+
+  return (
+    <BattleContext.Provider value={monsters} >
+      <UpdateMonstersContext.Provider value={UpdateMonsters}>
+        {children}
+      </UpdateMonstersContext.Provider>
+    </BattleContext.Provider>
+  )
+
+
+}

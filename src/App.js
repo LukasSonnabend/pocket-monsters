@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Enemy from './components/enemy';
 import { UserProvider } from './context/battleContext';
@@ -12,12 +12,14 @@ import {
   Link
 } from "react-router-dom";
 import Battle from './pages/battle';
+import {BattleProvider} from './context/battleContext'
 
 
 export default function App() {
+
   return (
     <Router>
-      <UserProvider>
+      <BattleProvider>
       <div>
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
@@ -32,7 +34,7 @@ export default function App() {
           </Route>
         </Switch>
       </div>
-      </UserProvider>
+      </BattleProvider>
     </Router>
   );
 }
