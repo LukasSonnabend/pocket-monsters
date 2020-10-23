@@ -14,14 +14,14 @@ export function MonstersUpdate(){
 
 
 export function BattleProvider({ children }) {
-  const [monsters, setMonsters] = useState({own: undefined, enemy: undefined});
+  const [monsters, setMonsters] = useState({origin: undefined, attack: undefined, run: 0});
   //const [monsters, setMonsters] = useState(true);
 
   function UpdateMonsters(obj) {
     if (obj.origin == "player"){
-      setMonsters(monsters.own = obj.monsInfo)
+      setMonsters(obj)
     } else {
-      setMonsters(monsters.enemy = obj.monsInfo)
+      setMonsters(obj)
     }
 
   }

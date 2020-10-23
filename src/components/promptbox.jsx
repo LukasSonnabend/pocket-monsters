@@ -34,11 +34,10 @@ function attack( selectAttack ){
   selectAttack.move.pp -= 1;
   setSelectAttack(
     {
-      index: selectAttack.index,
       move: selectAttack.move
     }
   )
-  props.parentCallback(selectAttack.move.power)
+  props.parentCallback(selectAttack)
 }
 
 

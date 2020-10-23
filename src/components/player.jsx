@@ -7,26 +7,44 @@ import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import PromptBox from '../components/promptbox';
 import stCall from '../mockStatsPlayer.json'
-
+import {useMonsters, MonstersUpdate} from '../context/battleContext'
+import oakdexPokedex from 'oakdex-pokedex';
 
 
 function Player(props) {
 
-
-
+  function jsUcfirst(string) 
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
   const [activeMonster, setActiveMonster] = useState( props.monsters[0] );
   const [activeMonsterStats, setActiveMonsterStats] = useState({stCall});
   const [playerAttackInfo, setPlayerAttackInfo] = useState()
+  const [battleStats, setBattleStats] = useState();
+
+
+  //context api
+  const monsters = useMonsters();
+  const updateMonsters = MonstersUpdate();
+
+  useEffect(() => {
+    const result = oakdexPokedex.findPokemon(jsUcfirst(activeMonster.name))
+    setActiveMonsterStats(result)
+    setBattleStats(result.base_stats)
   
+    if (battleStats) updateMonsters({origin: "player", playerStats: battleStats, attack: playerAttackInfo, run: 0})
+    
+  },[activeMonster, playerAttackInfo])
+
+
 
   //get attack info
   const playerAttack = useCallback((childData) => {
     setPlayerAttackInfo(childData)
   },[])
 
-  useEffect(() => {
 
-  },[playerAttackInfo])
+
 
   // useEffect(async () => {
   //   const result = await axios.get(activeMonster.url)
@@ -56,7 +74,7 @@ function Player(props) {
             </div>
           </Col>
           <Col className="playerRight">
-            <img className="playerMonster" src={activeMonsterStats.stCall.sprites.back_default}/>
+            <img className="playerMonster" src={stCall.sprites.back_default}/>
             <div className="playerGround">
               </div>
           </Col>
