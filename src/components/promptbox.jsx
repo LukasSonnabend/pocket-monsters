@@ -12,7 +12,7 @@ import stCall from '../mockStatsPlayer.json';
 
 function Promptbox(props) {
   const [status, setStatus] = useState();
-  const [activeMonster, setActiveMonster] = useState(props.activeMonster);
+  const [activeMonster, setActiveMonster] = useState(props.monsters[0]);
   const [activeMonsterStats, setActiveMonsterStats] = useState();
   const [gameMonster, setGameMonster] = useState();
   const [activeMonsterMoves, setActiveMonsterMoves] = useState();
@@ -68,11 +68,12 @@ function createMonster(stats, moveList) {
 
 
   useEffect(() => {
-    const result = oakdexPokedex.findPokemon(jsUcfirst(props.activeMonster.name))
+    const result = oakdexPokedex.findPokemon(jsUcfirst(activeMonster.name))
     setActiveMonsterStats(result)
     let moveList = result.move_learnsets[0].learnset;
     setActiveMonsterMoves(moveList.slice(0, 4))
     setGameMonster(createMonster(result, moveList.slice(0, 4)))
+    props.changeMonsterCallback(activeMonster)
   },[activeMonster]);
 
   return (<>
@@ -166,9 +167,9 @@ function createMonster(stats, moveList) {
                 props.monsters.map( ( {name}, index )  => {
                   return <>
                       <tr key={index}>
-                          <td key={index}>{index+1}</td>
-                          <td key={index}>{name}</td>
-                          <td key={index}>
+                          <td>{index+1}</td>
+                          <td onClick={() => setActiveMonster(props.monsters[index])} key={index}>{name}</td>
+                          <td >
                             <div className="playerHealthBar">
                               <div className="playerLife">
                               </div>
