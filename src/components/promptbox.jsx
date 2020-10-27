@@ -166,9 +166,9 @@ function createMonster(stats, moveList) {
                 props.monsters.map( ( {name}, index )  => {
                   return <>
                       <tr key={index}>
-                          <td>{index+1}</td>
-                          <td>{name}</td>
-                          <td>
+                          <td key={index}>{index+1}</td>
+                          <td key={index}>{name}</td>
+                          <td key={index}>
                             <div className="playerHealthBar">
                               <div className="playerLife">
                               </div>
