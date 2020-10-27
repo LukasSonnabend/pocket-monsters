@@ -14,6 +14,7 @@ function Enemy(props) {
   const [activeMonsterStats, setActiveMonsterStats] = useState({stCall});
   const [battleStats, setBattleStats] = useState();
   const [health, setHealth] = useState("100%")
+  const [enemySprite, setEnemySprite] = useState();
 
   const monsters = useMonsters();
   const updateMonsters = MonstersUpdate();
@@ -21,6 +22,11 @@ function Enemy(props) {
   function jsUcfirst(string) 
 {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+const getSprite = async () => {
+  let req = await axios.get( "https://pokeapi.co/api/v2/pokemon/" + activeMonster.name )
+  setEnemySprite(req.data.sprites.front_default)
 }
 
 
@@ -32,6 +38,7 @@ function Enemy(props) {
     let moveList = result.move_learnsets[0].learnset;
     result.base_stats.maxHealth = result.base_stats.hp
     setBattleStats(result.base_stats)
+    getSprite()
 }
     if (monsters.origin === "player" && monsters.run === 0){
       let dmg = 2 * (monsters.attack.move.power * monsters.playerStats.atk / battleStats.def) / 50 + 2
@@ -60,10 +67,11 @@ function Enemy(props) {
                 <Card.Body className="enemyStatsBody">
                   <p className="monsterName">{activeMonster.name}</p>
                   <h5 className="monsterLevel mr-2">Lv5</h5>
-                  <div className="enemyLife d-flex">
-                    {
-                      battleStats && Math.floor(battleStats.hp)
+                  {
+                      battleStats && "HP: " + Math.floor(battleStats.hp)
                     }
+                  <div className="enemyLife d-flex">
+                   
                   <div className="enemyHealthBar" style={{minWidth: health}}>
 
                   </div>
@@ -76,7 +84,7 @@ function Enemy(props) {
           <Col className="enemyRight">
             {/* <div className="enemyMonster" style={{background: "url(" + activeMonsterStats.stCall.sprites.front_default + ")"}}>
             </div> */}
-            <img className="enemyMonster" src="https://cdn.bulbagarden.net/upload/thumb/a/a9/061Poliwhirl.png/250px-061Poliwhirl.png"/>
+            <img className="enemyMonster" src={enemySprite}/>
             <div className="enemyGround">
               </div>
           </Col>
