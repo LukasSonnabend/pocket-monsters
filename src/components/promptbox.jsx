@@ -21,6 +21,13 @@ function Promptbox(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
+
+  const getSprite = async (monsterName) => {
+    let req = await axios.get( "https://pokeapi.co/api/v2/pokemon/" + monsterName )
+    return req.data.sprites.front_default
+  }
+
+
   // returns data/pokemon/eevee.json
   // console.log(eevee.names.en); // Eeevee
 
@@ -166,9 +173,11 @@ function createMonster(stats, moveList) {
               {
                 props.monsters.map( ( {name}, index )  => {
                   return <>
-                      <tr key={index}>
+                      <tr onClick={() => 
+                        setActiveMonster(props.monsters[index])
+                        } key={index}>
                           <td>{index+1}</td>
-                          <td onClick={() => setActiveMonster(props.monsters[index])} key={index}>{name}</td>
+                          <td key={index}>{name}</td>
                           <td >
                             <div className="playerHealthBar">
                               <div className="playerLife">
@@ -176,7 +185,7 @@ function createMonster(stats, moveList) {
                             </div>
                           </td>
                           <td>
-                            
+                          <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + oakdexPokedex.findPokemon(jsUcfirst(props.monsters[index].name)).national_id + ".png"}/>
                           </td>
                       </tr>
 
@@ -197,7 +206,6 @@ function createMonster(stats, moveList) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary">Understood</Button>
         </Modal.Footer>
       </Modal>
     </>
