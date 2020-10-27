@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.e8dd7816.chunk.css",
-    "main.js": "/static/js/main.fa308d7d.chunk.js",
-    "main.js.map": "/static/js/main.fa308d7d.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.e69fd653.js",
-    "runtime-main.js.map": "/static/js/runtime-main.e69fd653.js.map",
-    "static/css/2.2a86faee.chunk.css": "/static/css/2.2a86faee.chunk.css",
-    "static/js/2.aa39e856.chunk.js": "/static/js/2.aa39e856.chunk.js",
-    "static/js/2.aa39e856.chunk.js.map": "/static/js/2.aa39e856.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.ac71aa562e1745f86350ea74adca5ddb.js": "/precache-manifest.ac71aa562e1745f86350ea74adca5ddb.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.2a86faee.chunk.css.map": "/static/css/2.2a86faee.chunk.css.map",
-    "static/css/main.e8dd7816.chunk.css.map": "/static/css/main.e8dd7816.chunk.css.map",
-    "static/js/2.aa39e856.chunk.js.LICENSE.txt": "/static/js/2.aa39e856.chunk.js.LICENSE.txt"
+    "main.css": "/pocket-monsters/static/css/main.e8dd7816.chunk.css",
+    "main.js": "/pocket-monsters/static/js/main.db1ec26a.chunk.js",
+    "main.js.map": "/pocket-monsters/static/js/main.db1ec26a.chunk.js.map",
+    "runtime-main.js": "/pocket-monsters/static/js/runtime-main.2e532441.js",
+    "runtime-main.js.map": "/pocket-monsters/static/js/runtime-main.2e532441.js.map",
+    "static/css/2.2a86faee.chunk.css": "/pocket-monsters/static/css/2.2a86faee.chunk.css",
+    "static/js/2.aa39e856.chunk.js": "/pocket-monsters/static/js/2.aa39e856.chunk.js",
+    "static/js/2.aa39e856.chunk.js.map": "/pocket-monsters/static/js/2.aa39e856.chunk.js.map",
+    "index.html": "/pocket-monsters/index.html",
+    "precache-manifest.40db5246abf17bef55c72bbd2da2289f.js": "/pocket-monsters/precache-manifest.40db5246abf17bef55c72bbd2da2289f.js",
+    "service-worker.js": "/pocket-monsters/service-worker.js",
+    "static/css/2.2a86faee.chunk.css.map": "/pocket-monsters/static/css/2.2a86faee.chunk.css.map",
+    "static/css/main.e8dd7816.chunk.css.map": "/pocket-monsters/static/css/main.e8dd7816.chunk.css.map",
+    "static/js/2.aa39e856.chunk.js.LICENSE.txt": "/pocket-monsters/static/js/2.aa39e856.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e69fd653.js",
+    "static/js/runtime-main.2e532441.js",
     "static/css/2.2a86faee.chunk.css",
     "static/js/2.aa39e856.chunk.js",
     "static/css/main.e8dd7816.chunk.css",
-    "static/js/main.fa308d7d.chunk.js"
+    "static/js/main.db1ec26a.chunk.js"
   ]
 }
